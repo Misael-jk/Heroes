@@ -1,10 +1,12 @@
-﻿namespace Dominio;
+﻿using Dominio.ValueObjects;
+
+namespace Dominio;
 
 public class Heroe : Individuo
 {
     public Poder _poder { get; private set; }
 
-    public Heroe(string nombre, string apodo, int nivelEntrenamiento, Poder poder) 
+    public Heroe(NombreIndividuo nombre, Apodo apodo, int nivelEntrenamiento, Poder poder) 
         : base(nombre, apodo)
     {
         _poder = poder;
