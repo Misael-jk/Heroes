@@ -2,10 +2,7 @@
 
 public abstract class Poder
 {
-    //private int _nivel { get; set; }
-
-    //protected Poder(int nivel)
-    //{
-    //    _nivel = nivel;
-    //}
+    public abstract int CalcularPotencia();
+    public abstract bool EsConfiable();
+    public abstract void Ganar(Individuo vencido);
 }

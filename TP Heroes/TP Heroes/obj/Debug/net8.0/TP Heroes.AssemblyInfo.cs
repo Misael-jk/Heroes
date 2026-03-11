@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TP Heroes")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4334cfe101a61f3dd76741fead608d7af10509ef")]
 [assembly: System.Reflection.AssemblyProductAttribute("TP Heroes")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TP Heroes")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

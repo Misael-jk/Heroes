@@ -1,6 +1,4 @@
-﻿using static System.Runtime.InteropServices.JavaScript.JSType;
-
-namespace Dominio;
+﻿namespace Dominio;
 
 public class Heroe : Individuo
 {
@@ -10,5 +8,25 @@ public class Heroe : Individuo
         : base(nombre, apodo)
     {
         _poder = poder;
+    }
+
+    public override int CalcularPotencia()
+    {
+        return base.CalcularPotencia() + _poder.CalcularPotencia();
+    }
+
+    public override bool EsConfiable()
+    {
+        return base.HistorialPeleas.Count > 10 && _poder.EsConfiable();
+    }
+
+    public override void Ganar(Individuo vencido)
+    {
+        _poder.Ganar(vencido);
+    }
+
+    public override Poder Perder()
+    {
+        return _poder;
     }
 }

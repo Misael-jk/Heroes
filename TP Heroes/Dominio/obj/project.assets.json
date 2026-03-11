@@ -8,23 +8,23 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Lab15-PC01\\.nuget\\packages\\": {},
+    "C:\\Users\\Misael\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Geraldine Vargas 5to 8va\\Misael\\TP Heroes\\Dominio\\Dominio.csproj",
+      "projectUniqueName": "C:\\Users\\Misael\\CSharp\\Heroes\\TP Heroes\\Dominio\\Dominio.csproj",
       "projectName": "Dominio",
-      "projectPath": "E:\\Geraldine Vargas 5to 8va\\Misael\\TP Heroes\\Dominio\\Dominio.csproj",
-      "packagesPath": "C:\\Users\\Lab15-PC01\\.nuget\\packages\\",
-      "outputPath": "E:\\Geraldine Vargas 5to 8va\\Misael\\TP Heroes\\Dominio\\obj\\",
+      "projectPath": "C:\\Users\\Misael\\CSharp\\Heroes\\TP Heroes\\Dominio\\Dominio.csproj",
+      "packagesPath": "C:\\Users\\Misael\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Misael\\CSharp\\Heroes\\TP Heroes\\Dominio\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Lab15-PC01\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Misael\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -33,7 +33,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -68,6 +67,20 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[8.0.14, 8.0.14]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[8.0.14, 8.0.14]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[8.0.14, 8.0.14]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"

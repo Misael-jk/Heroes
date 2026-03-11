@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "Mv+Ao8K+ZI8=",
+  "dgSpecHash": "uL0aJCluotA=",
   "success": true,
-  "projectFilePath": "E:\\Geraldine Vargas 5to 8va\\Misael\\TP Heroes\\Dominio\\Dominio.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Misael\\CSharp\\Heroes\\TP Heroes\\Dominio\\Dominio.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Misael\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\8.0.14\\microsoft.windowsdesktop.app.ref.8.0.14.nupkg.sha512",
+    "C:\\Users\\Misael\\.nuget\\packages\\microsoft.netcore.app.ref\\8.0.14\\microsoft.netcore.app.ref.8.0.14.nupkg.sha512",
+    "C:\\Users\\Misael\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\8.0.14\\microsoft.aspnetcore.app.ref.8.0.14.nupkg.sha512"
+  ],
   "logs": []
 }

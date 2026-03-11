@@ -1,39 +1,34 @@
-﻿namespace Dominio;
+﻿using Dominio.ValueObjects;
+
+namespace Dominio;
 
 public class Individuo
 {
-    public string _nombre { get; private set; } = string.Empty;
-    public string _apodo { get; private set; } = string.Empty;
+    public NombreIndividuo _nombre { get; private set; }
+    public Apodo _apodo { get; private set; }
     public int _nivelEntrenamiento { get; private set; }
     public Compania? _compania { get; private set; }
 
     private List<Armas> _armas = new();
     public IReadOnlyCollection<Armas> Armitas => _armas.AsReadOnly();
+    private List<HistorialCombates> _historialPeleas = new();
+    public IReadOnlyCollection<HistorialCombates> HistorialPeleas => _historialPeleas.AsReadOnly();
 
-    protected Individuo(string nombre, string apodo)
+    #region Constructores
+    protected Individuo(NombreIndividuo nombre, Apodo apodo)
     {
         _nombre = nombre;
         _apodo = apodo;
         _nivelEntrenamiento = 0;
     }
 
-    public static Individuo Create(string nombre, string apodo)
+    public static Individuo Create(NombreIndividuo nombre, Apodo apodo)
     {
-        if (string.IsNullOrWhiteSpace(nombre))
-            throw new Exception("El nombre del arma no puede estar vacio");
-
-        if (nombre.Length > 100)
-            throw new Exception("Supera la capacidad de caracteres");
-
-        if (string.IsNullOrWhiteSpace(apodo))
-            throw new Exception("El nombre del arma no puede estar vacio");
-
-        if (apodo.Length > 100)
-            throw new Exception("Supera la capacidad de caracteres");
-
         return new(nombre, apodo);
     }
+    #endregion
 
+    #region Setters
     public void AgregarArma(string nombre, int potencia)
     {
         if (_armas.Any(a => a._nombre == nombre))
@@ -43,8 +38,13 @@ public class Individuo
         _armas.Add(armas);
     }
 
-    public void CambiarCompania(Compania compania)
+    public void AsignarCompania(Compania compania)
         => _compania = compania;
+
+    public int CantidadBatallas()
+        => _historialPeleas.Count;
+
+    #endregion
 
     public virtual int CalcularPotencia()
     {
@@ -59,11 +59,48 @@ public class Individuo
         return potenciaTotal;
     }
 
-    public virtual void Pelear(Individuo vencido)
-    {
-        if (_nivelEntrenamiento < 1000)
-            _nivelEntrenamiento++;
+    public virtual bool EsConfiable() 
+        => _historialPeleas.Count > 10 && _nivelEntrenamiento < 1000;
 
-        //_historialPeleas.Add(vencido);
+    public Individuo? OponenteMasPoderoso()
+    {
+        if (!_historialPeleas.Any()) return null;
+
+        Individuo masPoderoso = _historialPeleas[0]._individuo;
+
+        foreach (var oponente in _historialPeleas)
+        {
+            if (oponente._individuo.CalcularPotencia() > masPoderoso.CalcularPotencia())
+                masPoderoso = oponente._individuo;
+        }
+        return masPoderoso;
+
     }
+
+    public void Pelear(Individuo vencido, LugarBatalla lugar)
+    {
+        var historial = HistorialCombates.Create(vencido, lugar);
+        _historialPeleas.Add(historial);
+
+        var historialOponente = HistorialCombates.Create(this, lugar);
+        vencido._historialPeleas.Add(historialOponente);
+
+        if (this.CalcularPotencia() > vencido.CalcularPotencia())
+        {
+            Ganar(vencido);
+        }
+        else if (vencido.CalcularPotencia() > this.CalcularPotencia())
+        {
+            vencido.Ganar(this);
+        }
+    }
+
+    public virtual void Ganar(Individuo vencido)
+    {
+        if(_nivelEntrenamiento < 1000)
+            _nivelEntrenamiento++;
+    }
+
+    public virtual Poder Perder()
+        => new SuperFuerza(5);
 }
