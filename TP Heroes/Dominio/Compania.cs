@@ -16,7 +16,7 @@ public class Compania
         _nombre = nombre;
     }
 
-    public Compania Create(NombreCompania nombre)
+    public static Compania Create(NombreCompania nombre)
     {
         return new Compania(nombre);
     }
